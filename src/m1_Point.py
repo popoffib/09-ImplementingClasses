@@ -43,6 +43,64 @@ def main():
 # NOTE: For ALL of the methods that you implement, the method is allowed
 # to have additional side effects as needed by it and/or other methods.
 ###############################################################################
+import math
+
+class Point(object):
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y =y
+        self.moves = 0
+        self.x_start = self.x
+        self.y_start = self.y
+        self.traveled = 0
+
+    def __repr__(self):
+        return 'Point([], [])'.format(self.x, self.y)
+
+    def clone(self):
+        return Point(self.x, self.y)
+
+    def move_to(self, x_new, y_new):
+        x_distance = (x_new - self.x)
+        y_distance = (y_new - self.y)
+        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance ** 2))
+        self.x = x_new
+        self.y = y_new
+        self.moves = self.moves + 1
+
+    def move_by(self, dx, dy):
+        self.x = self.x + dx
+        self.y = self.y + dy
+        self.moves = self.moves + 1
+        x_distance = dx
+        y_distance = dy
+        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance ** 2))
+
+    def get_number_of_moves(self):
+        return self.moves
+
+    def get_distance_from(self, point):
+        dx = self.x - point.x
+        dy = self.y - point.y
+        return (round(math.sqrt((dx ** 2) + (dy ** 2))))
+
+    def get_distance_from_start(self):
+        dx = self.x - self.x_start
+        dy = self.y - self.y_start
+        return (round(math.sqrt((dx ** 2) + (dy ** 2))), 3)
+
+    def get_distance_traveled(self):
+        return round(self.traveled, 3)
+
+    def closer_to(self, p1, p2):
+        if (self.get_distance_from(p1) > self.get_distance_from(p2)):
+            return p2
+        else:
+            return p1
+
+    def halfway_to(self, p2):
+        return (((self.x + p2.x) / 2), (self.y + p2.y) / 2)
 
 
 def run_test_init():
@@ -92,7 +150,7 @@ def run_test_init():
         print('Actual for p2:  ', p2.x, p2.y)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3.
+    # DONE: 3.
     #   a. Read the above specification of the   __init__   method.
     #        Do NOT proceed until you understand WHAT it should do
     #        (but not necessarily HOW it will do it).
