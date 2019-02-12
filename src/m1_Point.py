@@ -964,8 +964,8 @@ def run_test_get_distance_traveled():
     p4 = Point(0, 555)
     for k in range(100):
         p2.move_by(0, k + 1)
-        p3.move_by(k +1, 0)
-        p4.move_to(k +1, 555)
+        p3.move_by(k + 1, 0)
+        p4.move_to(k + 1, 555)
 
     print()
     print('Expected p2 has now traveled', 101 * 50.0)
@@ -1107,13 +1107,39 @@ def run_test_halfway_to():
 
     """
     # -------------------------------------------------------------------------
-    # TODO: 13.  Follow the same instructions as in TO-DO 3 above,
+    # DONE: 13.  Follow the same instructions as in TO-DO 3 above,
     #    but for the  halfway_to  method specified above.
     # -------------------------------------------------------------------------
     print()
     print('-----------------------------------------------------------')
     print('Testing the   halfway_to   method of the Point class.')
     print('-----------------------------------------------------------')
+
+    p1 = Point(10, 20)
+    p2 = Point(30, 100)
+
+    print()
+    print('Should be: Point(20.0, 60.0)')
+    print('Actual is:', p1.halfway_to(p2))
+    print('Should be: Point(20.0, 60.0)')
+    print('Actual is:', p2.halfway_to(p1))
+
+    print()
+    print('Should be: Point(10.0, 20.0)')
+    print('Actual is:', p1.halfway_to(p1))
+
+    p3 = Point(-10, 20)
+    p4 = Point(30, -100)
+
+    print()
+    print('Should be: Point(10.0, -40.0)')
+    print('Actual is:', p3.halfway_to(p4))
+    print('Should be: Point(10.0, -40.0)')
+    print('Actual is:', p3.halfway_to(p4))
+
+    print()
+    print('Should be: Point(-10.0, 20.0)')
+    print('Actual is:', p3.halfway_to(p3))
 
 
 # -----------------------------------------------------------------------------
