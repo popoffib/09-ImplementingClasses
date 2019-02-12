@@ -180,26 +180,26 @@ def run_test_init():
     print('Testing the   __init__   method of the Point class.')
     print('-----------------------------------------------------------')
 
-    p1 = Point(40, 20)
+    p1 = Point(30, 18)
     print()
-    print('Expected for p1: 40 20')
+    print('Expected for p1: 30 18')
     print('Actual for p1: ', p1.x, p1.y)
 
-    p2 = Point(100, -50)
+    p2 = Point(100, -40)
     print()
-    print('Expected for p2: 100 -50')
+    print('Expected for p2: 100 -40')
     print('Actual for p2: ', p2.x, p2.y)
-    print('Expected for p1: 40 20')
+    print('Expected for p1: 30 18')
     print('Actual for p1: ', p1.x, p1.y)
 
     p1.y = 999
     print()
-    print('Expected for p1: 40 999')
+    print('Expected for p1: 30 999')
     print('Actual for p1: ', p1.x, p1.y)
-    print('Expected for p2: 100 -50')
+    print('Expected for p2: 100 -40')
     print('Actual for p2: ', p2.x, p2.y)
 
-    
+
 def run_test_repr():
     """
     Tests the   __repr__   method of the Point class.
